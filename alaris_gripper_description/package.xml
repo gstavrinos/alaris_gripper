@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>alaris_gripper_description</name>
+  <version>0.0.1</version>
+  <description>The alaris_gripper_description package</description>
+
+  <maintainer email="gstavrinos@iit.demokritos.gr">George Stavrinos</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/alaris_gripper</url>
+
+  <author email="gstavrinos@iit.demokritos.gr">George Stavrinos</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>urdf</depend>
+  <depend>xacro</depend>
+
+</package>
