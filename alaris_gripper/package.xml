@@ -1,0 +1,21 @@
+<package>
+  <name>alaris_gripper</name>
+  <version>0.0.1</version>
+  <description>
+      Drivers, description, and utilities for the ALARIS 3D printable underactuated gripper.
+  </description>
+
+  <maintainer email="gstavrinos@iit.demokritos.gr">George Stavrinos</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://ros.org/wiki/alaris_gripper</url>
+
+  <author email="gstavrinos@iit.demokritos.gr">George Stavrinos</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+    <metapackage/>
+  </export>
+</package>
