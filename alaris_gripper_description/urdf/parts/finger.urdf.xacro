@@ -1,0 +1,298 @@
+<?xml version="1.0"?>
+<robot name="alaris_gripper_finger" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:macro name="alaris_gripper_finger" params="prefix finger_id parent *origin">
+
+    <link name="${prefix}_finger_${finger_id}_link1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - link_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - link_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_finger_${finger_id}_gear_link_joint" type="fixed">
+        <xacro:insert_block name="origin"/>
+        <parent link="${parent}"/>
+        <child link="${prefix}_finger_${finger_id}_link1_link"/>
+    </joint>
+
+    <link name="${prefix}_finger_${finger_id}_link2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - link_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - link_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_finger_${finger_id}_link1_link2_joint" type="fixed">
+        <origin xyz="0.01575 -0.0274 0.0239" rpy="0 0 0"/>
+        <parent link="${prefix}_finger_${finger_id}_link1_link"/>
+        <child link="${prefix}_finger_${finger_id}_link2_link"/>
+    </joint>
+
+    <link name="${prefix}_finger_${finger_id}_phalanx1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - phalanx_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - phalanx_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_finger_${finger_id}_link1_phalanx1_joint" type="fixed">
+        <origin xyz="0.009 -0.01325 0.02" rpy="0 0 0"/>
+        <parent link="${prefix}_finger_${finger_id}_link1_link"/>
+        <child link="${prefix}_finger_${finger_id}_phalanx1_link"/>
+    </joint>
+
+    <link name="${prefix}_finger_${finger_id}_phalanx2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - phalanx_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - phalanx_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_finger_${finger_id}_phalanx1_phalanx2_joint" type="fixed">
+        <origin xyz="0.0113 -0.022 0.057" rpy="0 0 0"/>
+        <parent link="${prefix}_finger_${finger_id}_phalanx1_link"/>
+        <child link="${prefix}_finger_${finger_id}_phalanx2_link"/>
+    </joint>
+
+    <link name="${prefix}_finger_${finger_id}_rubber_phalanx1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - rubber_phalanx_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - rubber_phalanx_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_finger_${finger_id}_phalanx1_rubber_joint" type="fixed">
+        <origin xyz="-0.003 0.003 0.02" rpy="${PI/3} -${PI/7} ${PI/4}"/>
+        <parent link="${prefix}_finger_${finger_id}_phalanx1_link"/>
+        <child link="${prefix}_finger_${finger_id}_rubber_phalanx1_link"/>
+    </joint>
+
+    <link name="${prefix}_finger_${finger_id}_rubber_phalanx2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - rubber_phalanx_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="black"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - rubber_phalanx_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_finger_${finger_id}_phalanx2_rubber_joint" type="fixed">
+        <origin xyz="-0.0008 0.0008 0.0175" rpy="${PI/3} -${PI/7} ${PI/4}"/>
+        <parent link="${prefix}_finger_${finger_id}_phalanx2_link"/>
+        <child link="${prefix}_finger_${finger_id}_rubber_phalanx2_link"/>
+    </joint>
+
+    <link name="${prefix}_finger_${finger_id}_top_shaft1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_finger_${finger_id}_phalanx1_top_shaft1_joint" type="fixed">
+        <origin xyz="0.00425 -0.0121 0.0414" rpy="0 0 -${PI/3}"/>
+        <parent link="${prefix}_finger_${finger_id}_phalanx1_link"/>
+        <child link="${prefix}_finger_${finger_id}_top_shaft1_link"/>
+    </joint>
+
+    <link name="${prefix}_finger_${finger_id}_bottom_shaft1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_3.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_3.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_finger_${finger_id}_link1_bottom_shaft1_joint" type="fixed">
+        <origin xyz="-0.00075 0.0025 0.001" rpy="0 0 -${PI/3}"/>
+        <parent link="${prefix}_finger_${finger_id}_link1_link"/>
+        <child link="${prefix}_finger_${finger_id}_bottom_shaft1_link"/>
+    </joint>
+
+    <link name="${prefix}_finger_${finger_id}_bottom_shaft2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_4.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_4.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_finger_${finger_id}_link1_bottom_shaft2_joint" type="fixed">
+        <origin xyz="0.01252 -0.0218 -0.0101" rpy="0 0 -${PI/3}"/>
+        <parent link="${prefix}_finger_${finger_id}_link1_link"/>
+        <child link="${prefix}_finger_${finger_id}_bottom_shaft2_link"/>
+    </joint>
+
+    <link name="${prefix}_finger_${finger_id}_top_shaft2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_5.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_5.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_finger_${finger_id}_phalanx2_top_shaft2_joint" type="fixed">
+        <origin xyz="-0.00125 0.00325 -0.02835" rpy="0 0 -${PI/3}"/>
+        <parent link="${prefix}_finger_${finger_id}_phalanx2_link"/>
+        <child link="${prefix}_finger_${finger_id}_top_shaft2_link"/>
+    </joint>
+
+</xacro:macro>
+
+</robot>
