@@ -2,5 +2,6 @@
 <robot name="gripper_materials" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <xacro:property name="PI" value="3.14159"/>
+    <xacro:property name="prefix" value="gripper"/>
 
 </robot>

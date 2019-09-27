@@ -165,8 +165,10 @@
         </inertial>
     </link>
 
-    <joint name="${prefix}_mx28t_worm_joint" type="fixed">
+    <joint name="${prefix}_mx28t_worm_joint" type="revolute">
         <origin xyz="-0.00625 0.0112 0.0505" rpy="0 0 0"/>
+        <axis xyz="0 0 1" />
+        <limit lower="0" upper="-0.8" effort="10" velocity="10" />
         <parent link="${prefix}_mx28t_link"/>
         <child link="${prefix}_worm_link"/>
     </joint>
@@ -977,10 +979,13 @@
         </inertial>
     </link>
 
-    <joint name="${prefix}_gear1_shaft_joint" type="fixed">
+    <joint name="${prefix}_gear1_shaft_joint" type="revolute">
         <origin xyz="-0.00085 -0.000425 -0.0002" rpy="${PI/9} -${PI/18} ${PI/3}"/>
+        <axis xyz="0.64 -0.36 0" />
+        <limit lower="-0.8" upper="0" effort="10" velocity="10" />
         <parent link="${prefix}_gear1_shaft_link"/>
         <child link="${prefix}_gear1_link"/>
+        <mimic joint="${prefix}_mx28t_worm_joint" />
     </joint>
 
     <link name="${prefix}_gear2_link">
@@ -1006,10 +1011,13 @@
         </inertial>
     </link>
 
-    <joint name="${prefix}_gear2_shaft_joint" type="fixed">
+    <joint name="${prefix}_gear2_shaft_joint" type="revolute">
         <origin xyz="-0.00085 -0.000425 -0.0002" rpy="${PI/9} -${PI/18} ${PI/3}"/>
+        <axis xyz="0.64 -0.36 0" />
+        <limit lower="-0.8" upper="0" effort="10" velocity="10" />
         <parent link="${prefix}_gear2_shaft_link"/>
         <child link="${prefix}_gear2_link"/>
+        <mimic joint="${prefix}_mx28t_worm_joint" />
     </joint>
 
     <link name="${prefix}_gear3_link">
@@ -1035,10 +1043,13 @@
         </inertial>
     </link>
 
-    <joint name="${prefix}_gear3_shaft_joint" type="fixed">
+    <joint name="${prefix}_gear3_shaft_joint" type="revolute">
         <origin xyz="-0.00085 -0.000425 -0.0002" rpy="${PI/9} -${PI/18} ${PI/3}"/>
+        <axis xyz="0.64 -0.36 0" />
+        <limit lower="-0.8" upper="0" effort="10" velocity="10" />
         <parent link="${prefix}_gear3_shaft_link"/>
         <child link="${prefix}_gear3_link"/>
+        <mimic joint="${prefix}_mx28t_worm_joint" />
     </joint>
 
     <link name="${prefix}_gear1_shaft_retaining_ring1_link">
