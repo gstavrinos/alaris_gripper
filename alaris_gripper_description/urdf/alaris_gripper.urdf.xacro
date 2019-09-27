@@ -1,8 +1,18 @@
 <?xml version="1.0"?>
 <robot name="alaris_gripper" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+    <!-- Materials and Properties -->
+    <xacro:include filename="$(find alaris_gripper_description)/urdf/extras/materials.urdf.xacro"/>
+    <xacro:include filename="$(find alaris_gripper_description)/urdf/extras/properties.urdf.xacro"/>
+
+    <!-- Gripper Parts -->
     <xacro:include filename="$(find alaris_gripper_description)/urdf/parts/base.urdf.xacro"/>
+    <xacro:include filename="$(find alaris_gripper_description)/urdf/parts/finger.urdf.xacro"/>
 
     <xacro:alaris_gripper_base prefix="gripper"/>
+
+    <xacro:alaris_gripper_finger prefix="gripper" finger_id="1" parent="gripper_palm_link">
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+    </xacro:alaris_gripper_finger>
 
 </robot>
