@@ -3,32 +3,18 @@
 
 <xacro:macro name="alaris_gripper_base" params="prefix">
 
-    <xacro:property name="PI" value="3.14159"/>
-
-    <material name="black">
-        <color rgba="0.2 0.2 0.2 1"/>
-    </material>
-
-    <material name="white">
-        <color rgba="1 1 1 1"/>
-    </material>
-
-    <material name="gray">
-        <color rgba="0.5 0.5 0.5 1"/>
-    </material>
-
     <link name="${prefix}_platform_link">
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="white"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -44,14 +30,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - MX28T.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - MX28T.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - MX28T.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - MX28T.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -73,14 +59,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -102,14 +88,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -131,14 +117,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -160,14 +146,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - worm.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - worm.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="white"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - worm.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - worm.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -189,14 +175,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - palm.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - palm.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="white"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - palm.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - palm.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -218,14 +204,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -247,14 +233,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -276,14 +262,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -305,14 +291,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -334,14 +320,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -363,14 +349,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -392,14 +378,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - rubber_palm.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - rubber_palm.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - rubber_palm.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - rubber_palm.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -421,14 +407,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -450,14 +436,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -479,14 +465,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -508,14 +494,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -537,14 +523,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -566,14 +552,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -595,14 +581,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -624,14 +610,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -653,14 +639,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -682,14 +668,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -711,14 +697,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -740,14 +726,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -769,14 +755,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -798,14 +784,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -827,14 +813,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -856,14 +842,14 @@
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
             <material name="gray"/>
         </visual>
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/fixed/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -879,6 +865,354 @@
         <origin xyz="0 0 0.0008" rpy="0 0 0"/>
         <parent link="${prefix}_mx28t_screw8_link"/>
         <child link="${prefix}_mx28t_nut8_link"/>
+    </joint>
+
+    <link name="${prefix}_gear1_shaft_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.2" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_palm_gear1_shaft_joint" type="fixed">
+        <origin xyz="0.01365 -0.0215 -0.016" rpy="0 0 0"/>
+        <parent link="${prefix}_palm_link"/>
+        <child link="${prefix}_gear1_shaft_link"/>
+    </joint>
+
+    <link name="${prefix}_gear2_shaft_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.2" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_palm_gear2_shaft_joint" type="fixed">
+        <origin xyz="-0.0245 0.00075 -0.016" rpy="0 0 ${PI/3}"/>
+        <parent link="${prefix}_palm_link"/>
+        <child link="${prefix}_gear2_shaft_link"/>
+    </joint>
+
+    <link name="${prefix}_gear3_shaft_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_1.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.2" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_palm_gear3_shaft_joint" type="fixed">
+        <origin xyz="0.0123 0.0215 -0.016" rpy="0 0 ${2*PI/3}"/>
+        <parent link="${prefix}_palm_link"/>
+        <child link="${prefix}_gear3_shaft_link"/>
+    </joint>
+
+    <link name="${prefix}_gear1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - gear_30x4.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - gear_30x4.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_gear1_shaft_joint" type="fixed">
+        <origin xyz="-0.00085 -0.000425 -0.0002" rpy="${PI/9} -${PI/18} ${PI/3}"/>
+        <parent link="${prefix}_gear1_shaft_link"/>
+        <child link="${prefix}_gear1_link"/>
+    </joint>
+
+    <link name="${prefix}_gear2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - gear_30x4.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - gear_30x4.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_gear2_shaft_joint" type="fixed">
+        <origin xyz="-0.00085 -0.000425 -0.0002" rpy="${PI/9} -${PI/18} ${PI/3}"/>
+        <parent link="${prefix}_gear2_shaft_link"/>
+        <child link="${prefix}_gear2_link"/>
+    </joint>
+
+    <link name="${prefix}_gear3_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - gear_30x4.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="white"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - gear_30x4.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_gear3_shaft_joint" type="fixed">
+        <origin xyz="-0.00085 -0.000425 -0.0002" rpy="${PI/9} -${PI/18} ${PI/3}"/>
+        <parent link="${prefix}_gear3_shaft_link"/>
+        <child link="${prefix}_gear3_link"/>
+    </joint>
+
+    <link name="${prefix}_gear1_shaft_retaining_ring1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_gear1_shaft_retaining_ring1_joint" type="fixed">
+        <origin xyz="-0.0105 -0.006 -0.00125" rpy="0 0 ${PI/3}"/>
+        <parent link="${prefix}_gear1_shaft_link"/>
+        <child link="${prefix}_gear1_shaft_retaining_ring1_link"/>
+    </joint>
+
+    <link name="${prefix}_gear1_shaft_retaining_ring2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_gear1_shaft_retaining_ring2_joint" type="fixed">
+        <origin xyz="0.009 0.00525 -0.00125" rpy="0 0 ${PI/3}"/>
+        <parent link="${prefix}_gear1_shaft_link"/>
+        <child link="${prefix}_gear1_shaft_retaining_ring2_link"/>
+    </joint>
+
+    <link name="${prefix}_gear2_shaft_retaining_ring1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_gear2_shaft_retaining_ring1_joint" type="fixed">
+        <origin xyz="-0.0105 -0.006 -0.00125" rpy="0 0 ${PI/3}"/>
+        <parent link="${prefix}_gear2_shaft_link"/>
+        <child link="${prefix}_gear2_shaft_retaining_ring1_link"/>
+    </joint>
+
+    <link name="${prefix}_gear2_shaft_retaining_ring2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_gear2_shaft_retaining_ring2_joint" type="fixed">
+        <origin xyz="0.009 0.00525 -0.00125" rpy="0 0 ${PI/3}"/>
+        <parent link="${prefix}_gear2_shaft_link"/>
+        <child link="${prefix}_gear2_shaft_retaining_ring2_link"/>
+    </joint>
+
+    <link name="${prefix}_gear3_shaft_retaining_ring1_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_gear3_shaft_retaining_ring1_joint" type="fixed">
+        <origin xyz="-0.0105 -0.006 -0.00125" rpy="0 0 ${PI/3}"/>
+        <parent link="${prefix}_gear3_shaft_link"/>
+        <child link="${prefix}_gear3_shaft_retaining_ring1_link"/>
+    </joint>
+
+    <link name="${prefix}_gear3_shaft_retaining_ring2_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
+            </geometry>
+            <material name="gray"/>
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="0.079" />
+            <origin xyz="0 0 0" />
+            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
+                     iyy="0.000498940" iyz="0.0"
+                     izz="0.003879257" />
+        </inertial>
+    </link>
+
+    <joint name="${prefix}_gear3_shaft_retaining_ring2_joint" type="fixed">
+        <origin xyz="0.009 0.00525 -0.00125" rpy="0 0 ${PI/3}"/>
+        <parent link="${prefix}_gear3_shaft_link"/>
+        <child link="${prefix}_gear3_shaft_retaining_ring2_link"/>
     </joint>
 
 </xacro:macro>
