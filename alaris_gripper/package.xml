@@ -1,6 +1,6 @@
 <package>
   <name>alaris_gripper</name>
-  <version>0.0.1</version>
+  <version>0.9.0</version>
   <description>
       Drivers, description, and utilities for the ALARIS 3D printable underactuated gripper.
   </description>
