@@ -12,15 +12,15 @@
     <xacro:alaris_gripper_base prefix="${prefix}"/>
 
     <xacro:alaris_gripper_finger prefix="${prefix}" finger_id="1" parent="${prefix}_palm_link">
-        <origin xyz="-0.0435 -0.00052 -0.006" rpy="0 0 -${2*PI/3}"/>
+        <origin xyz="-0.0435 -0.00052 -0.006" rpy="0 0 ${PI}"/>
     </xacro:alaris_gripper_finger>
 
     <xacro:alaris_gripper_finger prefix="${prefix}" finger_id="2" parent="${prefix}_palm_link">
-        <origin xyz="0.022 0.03785 -0.006" rpy="0 0 ${2*PI/3}"/>
+        <origin xyz="0.022 0.03785 -0.006" rpy="0 0 ${PI/3}"/>
     </xacro:alaris_gripper_finger>
 
     <xacro:alaris_gripper_finger prefix="${prefix}" finger_id="3" parent="${prefix}_palm_link">
-        <origin xyz="0.0226 -0.03785 -0.006" rpy="0 0 0"/>
+        <origin xyz="0.0226 -0.03785 -0.006" rpy="0 0 -${PI/3}"/>
     </xacro:alaris_gripper_finger>
 
 </robot>
