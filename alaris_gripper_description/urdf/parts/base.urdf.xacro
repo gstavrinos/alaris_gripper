@@ -171,6 +171,7 @@
         <limit lower="-0.8" upper="0.8" effort="10" velocity="10" />
         <parent link="${prefix}_mx28t_link"/>
         <child link="${prefix}_worm_link"/>
+        <dynamics damping="0.02" friction="0.0" />
     </joint>
 
     <link name="${prefix}_palm_link">
@@ -986,6 +987,7 @@
         <parent link="${prefix}_gear1_shaft_link"/>
         <child link="${prefix}_gear1_link"/>
         <mimic joint="${prefix}_mx28t_worm_joint" />
+        <dynamics damping="0.02" friction="0.0" />
     </joint>
 
     <link name="${prefix}_gear2_link">
@@ -1018,6 +1020,7 @@
         <parent link="${prefix}_gear2_shaft_link"/>
         <child link="${prefix}_gear2_link"/>
         <mimic joint="${prefix}_mx28t_worm_joint" />
+        <dynamics damping="0.02" friction="0.0" />
     </joint>
 
     <link name="${prefix}_gear3_link">
@@ -1050,6 +1053,7 @@
         <parent link="${prefix}_gear3_shaft_link"/>
         <child link="${prefix}_gear3_link"/>
         <mimic joint="${prefix}_mx28t_worm_joint" />
+        <dynamics damping="0.02" friction="0.0" />
     </joint>
 
     <link name="${prefix}_gear1_shaft_retaining_ring1_link">
@@ -1063,7 +1067,7 @@
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -1092,7 +1096,7 @@
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -1121,7 +1125,7 @@
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -1150,7 +1154,7 @@
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -1179,7 +1183,7 @@
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -1208,7 +1212,7 @@
         <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
-                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2" scale="0.001 0.001 0.001"/>
+                <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
         <inertial>
@@ -1225,6 +1229,187 @@
         <parent link="${prefix}_gear3_shaft_link"/>
         <child link="${prefix}_gear3_shaft_retaining_ring2_link"/>
     </joint>
+
+
+    <!-- Gazebo Related -->
+
+     <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+          <robotNamespace>/</robotNamespace>
+        </plugin>
+
+        <plugin name="${prefix}_gear1_shaft_joint_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+        <joint>${prefix}_mx28t_worm_joint</joint>
+        <mimicJoint>${prefix}_gear1_shaft_joint</mimicJoint>
+        <multiplier>1</multiplier>
+        <offset>0</offset>
+        <sensitiveness>0</sensitiveness>   <!-- if absolute difference between setpoint and process value is below this threshold, do nothing; 0.0 = disable [rad] -->
+        <maxEffort>10</maxEffort> <!-- only taken into account if has_pid:=true [Nm] -->
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+
+        <plugin name="${prefix}_gear2_shaft_joint_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+        <joint>${prefix}_mx28t_worm_joint</joint>
+        <mimicJoint>${prefix}_gear2_shaft_joint</mimicJoint>
+        <multiplier>1</multiplier>
+        <offset>0</offset>
+        <sensitiveness>0</sensitiveness>   <!-- if absolute difference between setpoint and process value is below this threshold, do nothing; 0.0 = disable [rad] -->
+        <maxEffort>10</maxEffort> <!-- only taken into account if has_pid:=true [Nm] -->
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+
+        <plugin name="${prefix}_gear3_shaft_joint_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+        <joint>${prefix}_mx28t_worm_joint</joint>
+        <mimicJoint>${prefix}_gear3_shaft_joint</mimicJoint>
+        <multiplier>1</multiplier>
+        <offset>0</offset>
+        <sensitiveness>0</sensitiveness>   <!-- if absolute difference between setpoint and process value is below this threshold, do nothing; 0.0 = disable [rad] -->
+        <maxEffort>10</maxEffort> <!-- only taken into account if has_pid:=true [Nm] -->
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+    </gazebo>
+
+    <gazebo reference="${prefix}_gear3_shaft_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+
+    <gazebo reference="${prefix}_platform_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+
+    <gazebo reference="${prefix}_mx28t_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_standoff1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_standoff2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_standoff3_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_worm_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_palm_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_standoff1_screw1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_standoff2_screw1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_standoff3_screw1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_standoff1_screw2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_standoff2_screw2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_standoff3_screw2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_palm_rubber_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_screw1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_screw2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_screw3_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_screw4_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_screw5_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_screw6_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_screw7_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_screw8_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_nut1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_nut2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_nut3_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_nut4_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_nut5_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_nut6_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_nut7_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_mx28t_nut8_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear1_shaft_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear2_shaft_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear3_shaft_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear3_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear1_shaft_retaining_ring1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear1_shaft_retaining_ring2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear2_shaft_retaining_ring1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear2_shaft_retaining_ring2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear3_shaft_retaining_ring1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_gear3_shaft_retaining_ring2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+
+    <transmission name="${prefix}_mx28t_worm_trans" type="SimpleTransmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="${prefix}_mx28t_worm_joint_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="${prefix}_mx28t_worm_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
 
 </xacro:macro>
 

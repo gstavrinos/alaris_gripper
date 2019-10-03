@@ -33,6 +33,7 @@
         <parent link="${parent}"/>
         <child link="${prefix}_finger_${finger_id}_bottom_shaft1_link"/>
         <mimic joint="${prefix}_mx28t_worm_joint" multiplier="1"/> 
+        <dynamics damping="0.02" friction="0.0" />
     </joint>
 
     <link name="${prefix}_finger_${finger_id}_link1_revolution_point1"/>
@@ -43,6 +44,7 @@
         <parent link="${prefix}_finger_${finger_id}_bottom_shaft1_link"/>
         <child link="${prefix}_finger_${finger_id}_link1_revolution_point1"/>
         <mimic joint="${prefix}_finger_${finger_id}_phalanx2_revolution_point_joint" multiplier="0.49"/>
+        <dynamics damping="0.02" friction="0.0" />
     </joint>
 
     <link name="${prefix}_finger_${finger_id}_link1_link">
@@ -150,6 +152,7 @@
         <limit lower="-0.8" upper="0" effort="10" velocity="10" />
         <parent link="${prefix}_finger_${finger_id}_phalanx1_link"/>
         <child link="${prefix}_finger_${finger_id}_phalanx2_revolution_point"/>
+        <dynamics damping="0.02" friction="0.0" />
     </joint>
 
     <link name="${prefix}_finger_${finger_id}_phalanx2_link">
@@ -325,6 +328,95 @@
         <parent link="${prefix}_finger_${finger_id}_phalanx2_link"/>
         <child link="${prefix}_finger_${finger_id}_top_shaft2_link"/>
     </joint>
+
+
+    <!-- Gazebo Related -->
+
+     <gazebo>
+        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+          <robotNamespace>/</robotNamespace>
+        </plugin>
+
+        <plugin name="${prefix}_finger_${finger_id}_link1_bottom_shaft1_joint_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+        <joint>${prefix}_mx28t_worm_joint</joint>
+        <mimicJoint>${prefix}_finger_${finger_id}_link1_bottom_shaft1_joint</mimicJoint>
+        <multiplier>1</multiplier>
+        <offset>0</offset>
+        <sensitiveness>0</sensitiveness>   <!-- if absolute difference between setpoint and process value is below this threshold, do nothing; 0.0 = disable [rad] -->
+        <maxEffort>10</maxEffort> <!-- only taken into account if has_pid:=true [Nm] -->
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+
+        <plugin name="${prefix}_finger_${finger_id}_link1_revolution_point1_joint_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+        <joint>${prefix}_finger_${finger_id}_phalanx2_revolution_point_joint</joint>
+        <mimicJoint>${prefix}_finger_${finger_id}_link1_revolution_point1_joint</mimicJoint>
+        <multiplier>0.49</multiplier>
+        <offset>0</offset>
+        <sensitiveness>0</sensitiveness>   <!-- if absolute difference between setpoint and process value is below this threshold, do nothing; 0.0 = disable [rad] -->
+        <maxEffort>10</maxEffort> <!-- only taken into account if has_pid:=true [Nm] -->
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+
+        <plugin name="${prefix}_finger_${finger_id}_link1_revolution_point2_joint_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+        <joint>${prefix}_finger_${finger_id}_phalanx2_revolution_point_joint</joint>
+        <mimicJoint>${prefix}_finger_${finger_id}_link1_revolution_point2_joint</mimicJoint>
+        <multiplier>-0.55</multiplier>
+        <offset>0</offset>
+        <sensitiveness>0</sensitiveness>   <!-- if absolute difference between setpoint and process value is below this threshold, do nothing; 0.0 = disable [rad] -->
+        <maxEffort>10</maxEffort> <!-- only taken into account if has_pid:=true [Nm] -->
+        <robotNamespace>/</robotNamespace>
+      </plugin>
+    </gazebo>
+
+    <transmission name="${prefix}_finger_${finger_id}_phalanx2_revolution_point_trans" type="SimpleTransmission">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="${prefix}_finger_${finger_id}_phalanx2_revolution_point_motor">
+            <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="${prefix}_finger_${finger_id}_phalanx2_revolution_point_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <gazebo reference="${prefix}_finger_${finger_id}_bottom_shaft1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_link1_revolution_point1">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_link1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_link1_revolution_point2">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_link2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_phalanx1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_phalanx2_revolution_point">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_phalanx2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_rubber_phalanx1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_rubber_phalanx2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_top_shaft1_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_bottom_shaft2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
+    <gazebo reference="${prefix}_finger_${finger_id}_top_shaft2_link">
+      <self_collide>false</self_collide>
+    </gazebo>
 
 </xacro:macro>
 
