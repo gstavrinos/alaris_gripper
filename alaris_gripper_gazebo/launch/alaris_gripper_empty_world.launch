@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <arg name="world_name" default="$(find alaris_gripper_gazebo)/worlds/empty.world"/>
+
+  <include file="$(find alaris_gripper_gazebo)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)"/>
+  </include>
+
+  <include file="$(find alaris_gripper_gazebo)/launch/spawn_alaris_gripper.launch">
+
+  </include>
+
+</launch>
