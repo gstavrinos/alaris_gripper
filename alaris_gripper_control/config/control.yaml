@@ -1,0 +1,23 @@
+alaris_gripper_joint_publisher:
+  type: "joint_state_controller/JointStateController"
+  publish_rate: 50
+
+gripper_mx28t_worm_controller:
+  type: effort_controllers/JointPositionController
+  joint: gripper_mx28t_worm_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
+gripper_finger_1_phalanx2_controller:
+  type: effort_controllers/JointPositionController
+  joint: gripper_finger_1_phalanx2_revolution_point_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
+gripper_finger_2_phalanx2_controller:
+  type: effort_controllers/JointPositionController
+  joint: gripper_finger_2_phalanx2_revolution_point_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}
+
+gripper_finger_3_phalanx2_controller:
+  type: effort_controllers/JointPositionController
+  joint: gripper_finger_3_phalanx2_revolution_point_joint
+  pid: {p: 100.0, i: 0.01, d: 10.0}

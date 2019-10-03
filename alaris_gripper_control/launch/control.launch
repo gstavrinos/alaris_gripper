@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<launch>
+
+  <!-- <include file="$(find alaris_gripper_description)/launch/description.launch" /> -->
+
+  <rosparam command="load" file="$(find alaris_gripper_control)/config/control.yaml" />
+
+  <node name="base_controller_spawner" pkg="controller_manager" type="spawner"
+        args="
+        alaris_gripper_joint_publisher
+        gripper_mx28t_worm_controller
+        gripper_finger_1_phalanx2_controller
+        gripper_finger_2_phalanx2_controller
+        gripper_finger_3_phalanx2_controller"
+        output="screen"/>
+
+</launch>
