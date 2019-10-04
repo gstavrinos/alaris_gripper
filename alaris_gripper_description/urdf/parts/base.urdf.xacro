@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 <robot name="alaris_gripper_base" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+<!-- TODO: Accurate inertia and CoM -->
+<!-- TODO2: Contact coefficients -->
+
 <xacro:macro name="alaris_gripper_base" params="prefix">
 
     <link name="${prefix}_platform_link">
+        <static>true</static>
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
@@ -17,13 +21,11 @@
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.2" />
+        <!-- <inertial>
+            <mass value="0.03" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="0.0251360610696" ixy="0" ixz="0" iyy="0.0251415862243" iyz="0" izz="0.0499576469124" />
+        </inertial> -->
     </link>
 
     <link name="${prefix}_mx28t_link">
@@ -41,11 +43,12 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.079" />
+            <mass value="2.079" />
+            <!-- TODO -->
+            <!-- Real mass here is 0.079, but adding 2kg increases stability. -->
+            <!-- <mass value="0.079" /> -->
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="0.0348708168255" ixy="0" ixz="0" iyy="0.0303839715998" iyz="0" izz="0.0375755319567" />
         </inertial>
     </link>
 
@@ -69,13 +72,11 @@
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.5" />
+        <!-- <inertial>
+            <mass value="0.005" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="0.00243615089784" ixy="0" ixz="0" iyy="0.00244175112182" iyz="0" izz="3.9202407236e-05" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_platform_standoff1_joint" type="fixed">
@@ -98,13 +99,11 @@
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.5" />
+        <!-- <inertial>
+            <mass value="0.005" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="0.00243615089784" ixy="0" ixz="0" iyy="0.00244175112182" iyz="0" izz="3.9202407236e-05" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_platform_standoff2_joint" type="fixed">
@@ -127,13 +126,11 @@
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.5" />
+        <!-- <inertial>
+            <mass value="0.005" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="0.00243615089784" ixy="0" ixz="0" iyy="0.00244175112182" iyz="0" izz="3.9202407236e-05" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_platform_standoff3_joint" type="fixed">
@@ -150,18 +147,16 @@
             </geometry>
             <material name="white"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - worm.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
+        </collision> -->
         <inertial>
-            <mass value="0.5" />
+            <mass value="0.015" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="0.30427083939" ixy="0" ixz="0" iyy="0.304272499683" iyz="0" izz="0.12454325515" />
         </inertial>
     </link>
 
@@ -188,13 +183,11 @@
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - palm.STL" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
-        <inertial>
-            <mass value="0.5" />
+        <!-- <inertial>
+            <mass value="0.03" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="0.0273707858005" ixy="0" ixz="0" iyy="0.0277986279135" iyz="0" izz="0.0475711129826" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_platform_palm_joint" type="fixed">
@@ -211,19 +204,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="2.12724885605e-05" ixy="0" ixz="0" iyy="2.12724969418e-05" iyz="0" izz="7.24086635252e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_standoff1_screw1_joint" type="fixed">
@@ -240,19 +231,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="2.12724885605e-05" ixy="0" ixz="0" iyy="2.12724969418e-05" iyz="0" izz="7.24086635252e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_standoff2_screw1_joint" type="fixed">
@@ -269,19 +258,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="2.12724885605e-05" ixy="0" ixz="0" iyy="2.12724969418e-05" iyz="0" izz="7.24086635252e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_standoff3_screw1_joint" type="fixed">
@@ -298,19 +285,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="2.12724885605e-05" ixy="0" ixz="0" iyy="2.12724969418e-05" iyz="0" izz="7.24086635252e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_standoff1_screw2_joint" type="fixed">
@@ -327,19 +312,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="2.12724885605e-05" ixy="0" ixz="0" iyy="2.12724969418e-05" iyz="0" izz="7.24086635252e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_standoff2_screw2_joint" type="fixed">
@@ -356,19 +339,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - screw_standoff.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="2.12724885605e-05" ixy="0" ixz="0" iyy="2.12724969418e-05" iyz="0" izz="7.24086635252e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_standoff3_screw2_joint" type="fixed">
@@ -385,19 +366,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - rubber_palm.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.003" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="0.00207151182299" ixy="0" ixz="0" iyy="0.00176457324947" iyz="0" izz="0.00383158506173" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_palm_rubber_joint" type="fixed">
@@ -414,19 +393,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="1.46989051635e-05" ixy="0" ixz="0" iyy="1.47083333333e-05" iyz="0" izz="3.36557183013e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_mx28t_screw1_joint" type="fixed">
@@ -443,19 +420,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="1.46989051635e-05" ixy="0" ixz="0" iyy="1.47083333333e-05" iyz="0" izz="3.36557183013e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_mx28t_screw2_joint" type="fixed">
@@ -472,19 +447,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="1.46989051635e-05" ixy="0" ixz="0" iyy="1.47083333333e-05" iyz="0" izz="3.36557183013e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_mx28t_screw3_joint" type="fixed">
@@ -501,19 +474,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="1.46989051635e-05" ixy="0" ixz="0" iyy="1.47083333333e-05" iyz="0" izz="3.36557183013e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_mx28t_screw4_joint" type="fixed">
@@ -530,19 +501,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="1.46989051635e-05" ixy="0" ixz="0" iyy="1.47083333333e-05" iyz="0" izz="3.36557183013e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_mx28t_screw5_joint" type="fixed">
@@ -559,19 +528,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="1.46989051635e-05" ixy="0" ixz="0" iyy="1.47083333333e-05" iyz="0" izz="3.36557183013e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_mx28t_screw6_joint" type="fixed">
@@ -588,19 +555,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="1.46989051635e-05" ixy="0" ixz="0" iyy="1.47083333333e-05" iyz="0" izz="3.36557183013e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_mx28t_screw7_joint" type="fixed">
@@ -617,19 +582,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - M2.5_Screw_for_platform.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="1.46989051635e-05" ixy="0" ixz="0" iyy="1.47083333333e-05" iyz="0" izz="3.36557183013e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_mx28t_screw8_joint" type="fixed">
@@ -646,19 +609,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="6.22222948145e-06" ixy="0" ixz="0" iyy="4.83334859221e-06" iyz="0" izz="9.72221422258e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_screw1_nut_joint" type="fixed">
@@ -675,19 +636,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="6.22222948145e-06" ixy="0" ixz="0" iyy="4.83334859221e-06" iyz="0" izz="9.72221422258e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_screw2_nut_joint" type="fixed">
@@ -704,19 +663,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="6.22222948145e-06" ixy="0" ixz="0" iyy="4.83334859221e-06" iyz="0" izz="9.72221422258e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_screw3_nut_joint" type="fixed">
@@ -733,19 +690,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="6.22222948145e-06" ixy="0" ixz="0" iyy="4.83334859221e-06" iyz="0" izz="9.72221422258e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_screw4_nut_joint" type="fixed">
@@ -762,19 +717,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="6.22222948145e-06" ixy="0" ixz="0" iyy="4.83334859221e-06" iyz="0" izz="9.72221422258e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_screw5_nut_joint" type="fixed">
@@ -791,19 +744,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="6.22222948145e-06" ixy="0" ixz="0" iyy="4.83334859221e-06" iyz="0" izz="9.72221422258e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_screw6_nut_joint" type="fixed">
@@ -820,19 +771,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="6.22222948145e-06" ixy="0" ixz="0" iyy="4.83334859221e-06" iyz="0" izz="9.72221422258e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_screw7_nut_joint" type="fixed">
@@ -849,19 +798,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Nut_M2.5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.5" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="6.22222948145e-06" ixy="0" ixz="0" iyy="4.83334859221e-06" iyz="0" izz="9.72221422258e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_screw8_nut_joint" type="fixed">
@@ -878,18 +825,16 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_1.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
+        </collision> -->
         <inertial>
-            <mass value="0.2" />
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="6.46730754557e-02" ixy="0" ixz="0" iyy="0.120949215392" iyz="0" izz="0.168355266927" />
         </inertial>
     </link>
 
@@ -907,18 +852,16 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_1.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
+        </collision> -->
         <inertial>
-            <mass value="0.2" />
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="6.46730754557e-02" ixy="0" ixz="0" iyy="0.120949215392" iyz="0" izz="0.168355266927" />
         </inertial>
     </link>
 
@@ -936,18 +879,16 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_1.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
+        </collision> -->
         <inertial>
-            <mass value="0.2" />
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="6.46730754557e-02" ixy="0" ixz="0" iyy="0.120949215392" iyz="0" izz="0.168355266927" />
         </inertial>
     </link>
 
@@ -965,18 +906,16 @@
             </geometry>
             <material name="white"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - gear_30x4.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
+        </collision> -->
         <inertial>
-            <mass value="0.079" />
+            <mass value="0.003" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="0.47352420538" ixy="0" ixz="0" iyy="0.348760301162" iyz="0" izz="0.310351643013" />
         </inertial>
     </link>
 
@@ -998,18 +937,16 @@
             </geometry>
             <material name="white"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - gear_30x4.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
+        </collision> -->
         <inertial>
-            <mass value="0.079" />
+            <mass value="0.003" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="0.47352420538" ixy="0" ixz="0" iyy="0.348760301162" iyz="0" izz="0.310351643013" />
         </inertial>
     </link>
 
@@ -1031,18 +968,16 @@
             </geometry>
             <material name="white"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - gear_30x4.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
+        </collision> -->
         <inertial>
-            <mass value="0.079" />
+            <mass value="0.003" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="0.47352420538" ixy="0" ixz="0" iyy="0.348760301162" iyz="0" izz="0.310351643013" />
         </inertial>
     </link>
 
@@ -1064,19 +999,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="8.14210970217e-06" ixy="0" ixz="0" iyy="6.29852930843e-06" iyz="0" izz="4.27723043571e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_gear1_shaft_retaining_ring1_joint" type="fixed">
@@ -1093,19 +1026,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="8.14210970217e-06" ixy="0" ixz="0" iyy="6.29852930843e-06" iyz="0" izz="4.27723043571e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_gear1_shaft_retaining_ring2_joint" type="fixed">
@@ -1122,19 +1053,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="8.14210970217e-06" ixy="0" ixz="0" iyy="6.29852930843e-06" iyz="0" izz="4.27723043571e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_gear2_shaft_retaining_ring1_joint" type="fixed">
@@ -1151,19 +1080,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="8.14210970217e-06" ixy="0" ixz="0" iyy="6.29852930843e-06" iyz="0" izz="4.27723043571e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_gear2_shaft_retaining_ring2_joint" type="fixed">
@@ -1180,19 +1107,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="8.14210970217e-06" ixy="0" ixz="0" iyy="6.29852930843e-06" iyz="0" izz="4.27723043571e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_gear3_shaft_retaining_ring1_joint" type="fixed">
@@ -1209,19 +1134,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - Retaining ring_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="8.14210970217e-06" ixy="0" ixz="0" iyy="6.29852930843e-06" iyz="0" izz="4.27723043571e-06" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_gear3_shaft_retaining_ring2_joint" type="fixed">
@@ -1234,9 +1157,6 @@
     <!-- Gazebo Related -->
 
      <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-          <robotNamespace>/</robotNamespace>
-        </plugin>
 
         <plugin name="${prefix}_gear1_shaft_joint_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
         <joint>${prefix}_mx28t_worm_joint</joint>
@@ -1269,111 +1189,141 @@
       </plugin>
     </gazebo>
 
-    <gazebo reference="${prefix}_gear3_shaft_link">
+    <!-- <gazebo reference="${prefix}_platform_link">
       <self_collide>false</self_collide>
-    </gazebo>
-
-    <gazebo reference="${prefix}_platform_link">
-      <self_collide>false</self_collide>
-    </gazebo>
+    </gazebo> -->
 
     <gazebo reference="${prefix}_mx28t_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_standoff1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_standoff2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_standoff3_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
-    <gazebo reference="${prefix}_worm_link">
+    <!-- <gazebo reference="${prefix}_worm_link">
       <self_collide>false</self_collide>
-    </gazebo>
+    </gazebo> -->
     <gazebo reference="${prefix}_palm_link">
       <self_collide>false</self_collide>
+      <mu1>1.0</mu1>
+      <mu2>1.0</mu2>
+      <minDepth>0.003</minDepth>
+      <maxVel>0</maxVel>
     </gazebo>
     <gazebo reference="${prefix}_standoff1_screw1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_standoff2_screw1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_standoff3_screw1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_standoff1_screw2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_standoff2_screw2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_standoff3_screw2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_palm_rubber_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_screw1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_screw2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_screw3_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_screw4_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_screw5_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_screw6_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_screw7_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_screw8_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_nut1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_nut2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_nut3_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_nut4_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_nut5_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_nut6_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_nut7_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_mx28t_nut8_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_gear1_shaft_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_gear2_shaft_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_gear3_shaft_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
-    <gazebo reference="${prefix}_gear1_link">
+    <!-- <gazebo reference="${prefix}_gear1_link">
       <self_collide>false</self_collide>
     </gazebo>
     <gazebo reference="${prefix}_gear2_link">
@@ -1381,24 +1331,30 @@
     </gazebo>
     <gazebo reference="${prefix}_gear3_link">
       <self_collide>false</self_collide>
-    </gazebo>
+    </gazebo> -->
     <gazebo reference="${prefix}_gear1_shaft_retaining_ring1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_gear1_shaft_retaining_ring2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_gear2_shaft_retaining_ring1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_gear2_shaft_retaining_ring2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_gear3_shaft_retaining_ring1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_gear3_shaft_retaining_ring2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
 
     <transmission name="${prefix}_mx28t_worm_trans" type="SimpleTransmission">
@@ -1412,5 +1368,11 @@
     </transmission>
 
 </xacro:macro>
+
+    <gazebo>
+        <plugin name="gripper_gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
 
 </robot>

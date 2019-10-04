@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <robot name="alaris_gripper_finger" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
+<!-- TODO: Accurate inertia and CoM -->
+<!-- TODO2: Contact coefficients -->
+
 <xacro:macro name="alaris_gripper_finger" params="prefix finger_id parent *origin">
 
     <link name="${prefix}_finger_${finger_id}_bottom_shaft1_link">
@@ -11,18 +14,16 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_3.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
+        </collision> -->
         <inertial>
-            <mass value="0.079" />
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="0.157703535968" ixy="0" ixz="0" iyy="5.32853596796e-03" iyz="0" izz="0.157708333333" />
         </inertial>
     </link>
 
@@ -33,7 +34,7 @@
         <parent link="${parent}"/>
         <child link="${prefix}_finger_${finger_id}_bottom_shaft1_link"/>
         <mimic joint="${prefix}_mx28t_worm_joint" multiplier="1"/> 
-        <dynamics damping="0.02" friction="0.0" />
+        <dynamics damping="0.1" friction="0.01" />
     </joint>
 
     <link name="${prefix}_finger_${finger_id}_link1_revolution_point1"/>
@@ -44,7 +45,7 @@
         <parent link="${prefix}_finger_${finger_id}_bottom_shaft1_link"/>
         <child link="${prefix}_finger_${finger_id}_link1_revolution_point1"/>
         <mimic joint="${prefix}_finger_${finger_id}_phalanx2_revolution_point_joint" multiplier="0.49"/>
-        <dynamics damping="0.02" friction="0.0" />
+        <dynamics damping="0.1" friction="0.01" />
     </joint>
 
     <link name="${prefix}_finger_${finger_id}_link1_link">
@@ -62,11 +63,9 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.079" />
+            <mass value="0.015" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="0.254679045832" ixy="0" ixz="0" iyy="0.158991412273" iyz="0" izz="0.267633973429" />
         </inertial>
     </link>
 
@@ -101,11 +100,9 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.079" />
+            <mass value="0.015" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="0.664686531587" ixy="0" ixz="0" iyy="0.634818331744" iyz="0" izz="0.0829827283778" />
         </inertial>
     </link>
 
@@ -130,11 +127,9 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.079" />
+            <mass value="0.025" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="0.155384597081" ixy="0" ixz="0" iyy="0.13527302274" iyz="0" izz="0.0945925787284" />
         </inertial>
     </link>
 
@@ -152,7 +147,7 @@
         <limit lower="-0.8" upper="0" effort="10" velocity="10" />
         <parent link="${prefix}_finger_${finger_id}_phalanx1_link"/>
         <child link="${prefix}_finger_${finger_id}_phalanx2_revolution_point"/>
-        <dynamics damping="0.02" friction="0.0" />
+        <dynamics damping="0.1" friction="0.01" />
     </joint>
 
     <link name="${prefix}_finger_${finger_id}_phalanx2_link">
@@ -170,11 +165,9 @@
             </geometry>
         </collision>
         <inertial>
-            <mass value="0.079" />
+            <mass value="0.025" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
+           <inertia  ixx="0.132382932697" ixy="0" ixz="0" iyy="0.124835913767" iyz="0" izz="0.0537994424791" />
         </inertial>
     </link>
 
@@ -192,19 +185,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - rubber_phalanx_1.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="0.00014064046926" ixy="0" ixz="0" iyy="0.000138482243294" iyz="0" izz="0.000135354350922" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_finger_${finger_id}_phalanx1_rubber_joint" type="fixed">
@@ -221,19 +212,17 @@
             </geometry>
             <material name="black"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - rubber_phalanx_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.001" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="0.000166279126079" ixy="0" ixz="0" iyy="0.000149479780221" iyz="0" izz="0.000123658178812" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_finger_${finger_id}_phalanx2_rubber_joint" type="fixed">
@@ -250,19 +239,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_2.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="0.000119703545814" ixy="0" ixz="0" iyy="5.32854581374e-06" iyz="0" izz="0.000119708333333" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_finger_${finger_id}_phalanx1_top_shaft1_joint" type="fixed">
@@ -279,19 +266,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_4.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="2.10267752271e-05" ixy="0" ixz="0" iyy="5.31844189372e-06" iyz="0" izz="2.10416666667e-05" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_finger_${finger_id}_link1_bottom_shaft2_joint" type="fixed">
@@ -308,19 +293,17 @@
             </geometry>
             <material name="gray"/>
         </visual>
-        <collision>
+        <!-- <collision>
             <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
             <geometry>
                 <mesh filename="package://alaris_gripper_description/meshes/Gripper_Assembly - shaft_5.STL" scale="0.001 0.001 0.001"/>
             </geometry>
-        </collision>
-        <inertial>
-            <mass value="0.079" />
+        </collision> -->
+        <!-- <inertial>
+            <mass value="0.002" />
             <origin xyz="0 0 0" />
-            <inertia ixx="0.003881243" ixy="0.0" ixz="0.0"
-                     iyy="0.000498940" iyz="0.0"
-                     izz="0.003879257" />
-        </inertial>
+           <inertia  ixx="3.77035350151e-05" ixy="0" ixz="0" iyy="5.32853501515e-06" iyz="0" izz="3.77083333333e-05" />
+        </inertial> -->
     </link>
 
     <joint name="${prefix}_finger_${finger_id}_phalanx2_top_shaft2_joint" type="fixed">
@@ -333,9 +316,6 @@
     <!-- Gazebo Related -->
 
      <gazebo>
-        <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
-          <robotNamespace>/</robotNamespace>
-        </plugin>
 
         <plugin name="${prefix}_finger_${finger_id}_link1_bottom_shaft1_joint_plugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
         <joint>${prefix}_mx28t_worm_joint</joint>
@@ -380,8 +360,9 @@
 
     <gazebo reference="${prefix}_finger_${finger_id}_bottom_shaft1_link">
       <self_collide>false</self_collide>
+      <material>Gazebo/Gray</material>
     </gazebo>
-    <gazebo reference="${prefix}_finger_${finger_id}_link1_revolution_point1">
+    <!-- <gazebo reference="${prefix}_finger_${finger_id}_link1_revolution_point1">
       <self_collide>false</self_collide>
     </gazebo>
     <gazebo reference="${prefix}_finger_${finger_id}_link1_link">
@@ -392,32 +373,51 @@
     </gazebo>
     <gazebo reference="${prefix}_finger_${finger_id}_link2_link">
       <self_collide>false</self_collide>
-    </gazebo>
+    </gazebo> -->
     <gazebo reference="${prefix}_finger_${finger_id}_phalanx1_link">
       <self_collide>false</self_collide>
+      <mu1>1.0</mu1>
+      <mu2>1.0</mu2>
+      <minDepth>0.003</minDepth>
+      <maxVel>0</maxVel>
     </gazebo>
-    <gazebo reference="${prefix}_finger_${finger_id}_phalanx2_revolution_point">
+    <!-- <gazebo reference="${prefix}_finger_${finger_id}_phalanx2_revolution_point">
       <self_collide>false</self_collide>
-    </gazebo>
+    </gazebo> -->
     <gazebo reference="${prefix}_finger_${finger_id}_phalanx2_link">
       <self_collide>false</self_collide>
+      <mu1>1.0</mu1>
+      <mu2>1.0</mu2>
+      <minDepth>0.003</minDepth>
+      <maxVel>0</maxVel>
     </gazebo>
     <gazebo reference="${prefix}_finger_${finger_id}_rubber_phalanx1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_finger_${finger_id}_rubber_phalanx2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Black</material>
     </gazebo>
     <gazebo reference="${prefix}_finger_${finger_id}_top_shaft1_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_finger_${finger_id}_bottom_shaft2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
     <gazebo reference="${prefix}_finger_${finger_id}_top_shaft2_link">
-      <self_collide>false</self_collide>
+      <!-- <self_collide>false</self_collide> -->
+      <material>Gazebo/Gray</material>
     </gazebo>
 
 </xacro:macro>
+
+    <gazebo>
+        <plugin name="finger_gazebo_ros_control" filename="libgazebo_ros_control.so">
+            <robotNamespace>/</robotNamespace>
+        </plugin>
+    </gazebo>
 
 </robot>
